@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: Chuck Norris Jokes
- * Description: Love Chuck Norris? Like Nerdy jokes? This plugin is for you!
+ * Description: Love Chuck Norris jokes? This plugin is for you!
  * Author: Nikhil Vimal
  * Author URI: http://nik.techvoltz.com
  * Version: 1.0
- * Plugin URI:
+ * Plugin URI: https://github.com/NikV/chuck-norris-plugin
  * License: GNU GPLv2+
  */
 
