@@ -25,8 +25,10 @@ Class Chuck_Norris_Jokes {
 
 	public function chuck_norris_shortcode() {
 		$jsonurl = "http://api.icndb.com/jokes/random?limitTo=[nerdy]";
-		$json = file_get_contents($jsonurl);
-		$json_output = json_decode($json);
+		$json = wp_remote_get($jsonurl);
+		$body = wp_remote_retrieve_body( $json );
+		$json_output = json_decode( $body );
+
 		echo $json_output->value->joke;
 
 		return '<p><strong>Refresh Page for another great Chuck Norris Joke</strong></p>';
@@ -51,8 +53,10 @@ Class Chuck_Norris_Jokes {
 	public function roundhouse_widget_function() {
 
 		$jsonurl = "http://api.icndb.com/jokes/random?limitTo=[nerdy]";
-		$json = file_get_contents($jsonurl);
-		$json_output = json_decode($json);
+		$json = wp_remote_get($jsonurl);
+		$body = wp_remote_retrieve_body( $json );
+		$json_output = json_decode( $body );
+
 		echo $json_output->value->joke;
 
 		echo '<p><strong>Refresh Page for another great Chuck Norris Joke</strong></p>';
