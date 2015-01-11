@@ -17,6 +17,7 @@ if ( ! defined( 'WPINC' ) ) {
 //Chuck Norris has the best PHP Class around.
 Class Chuck_Norris_Jokes {
 
+	//Constructing the greatest plugin of all time
 	public function __construct() {
 		add_action( 'wp_dashboard_setup', array( $this, 'chuck_norris_dashboard_widget' ));
 		add_shortcode('chuck-norris-jokes', array( $this, 'chuck_norris_shortcode' ));
