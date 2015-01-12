@@ -17,12 +17,13 @@ if ( ! defined( 'WPINC' ) ) {
 //Chuck Norris has the best PHP Class around.
 Class Chuck_Norris_Jokes {
 
-	//Constructing the greatest plugin of all time
+	//Constructing the greatest WordPress plugin of all time
 	public function __construct() {
 		add_action( 'wp_dashboard_setup', array( $this, 'chuck_norris_dashboard_widget' ));
 		add_shortcode('chuck-norris-jokes', array( $this, 'chuck_norris_shortcode' ));
 
 	}
+
 
 	public function chuck_norris_shortcode() {
 		$jsonurl = "http://api.icndb.com/jokes/random?limitTo=[nerdy]";
@@ -30,6 +31,7 @@ Class Chuck_Norris_Jokes {
 		$body = wp_remote_retrieve_body( $json );
 		$json_output = json_decode( $body );
 
+		//HTML can try to escape Chuck Norris, but it probably can't
 		echo esc_html($json_output->value->joke);
 
 		return '<p><strong>Refresh Page for another great Chuck Norris Joke</strong></p>';
@@ -37,9 +39,7 @@ Class Chuck_Norris_Jokes {
 	}
 
 	/**
-	 * Add a widget to the dashboard.
-	 *
-	 * This function is hooked into the 'wp_dashboard_setup' action below.
+	 * Add dashboard widget. A Chuck Norris Dashboard Widget
 	 */
 	public function chuck_norris_dashboard_widget() {
 
@@ -49,6 +49,7 @@ Class Chuck_Norris_Jokes {
 			array( $this, 'roundhouse_widget_function' ) // Roundhouse kick that function to another line.
 		);
 	}
+
 
 
 	public function roundhouse_widget_function() {
@@ -62,5 +63,5 @@ Class Chuck_Norris_Jokes {
 
 		echo '<p><strong>Refresh Page for another great Chuck Norris Joke</strong></p>';
 	}
-}
+} //The end? It's only the beginning...
 new Chuck_Norris_Jokes();
