@@ -27,6 +27,7 @@ Class Chuck_Norris_Jokes {
 
 	public function chuck_norris_shortcode() {
 
+		//The best transient
 		$key = 'chuck_norris';
 
 		// Let's see if we have a cached version
