@@ -26,16 +26,35 @@ Class Chuck_Norris_Jokes {
 
 
 	public function chuck_norris_shortcode() {
-		$jsonurl = "http://api.icndb.com/jokes/random?limitTo=[nerdy]";
-		$json = wp_remote_get($jsonurl);
-		$body = wp_remote_retrieve_body( $json );
-		$json_output = json_decode( $body );
 
-		//HTML can try to escape Chuck Norris, but it probably can't
-		echo esc_html($json_output->value->joke);
+		$key = 'chuck_norris';
 
-		return '<p><strong>Refresh Page for another great Chuck Norris Joke</strong></p>';
+		// Let's see if we have a cached version
+		$chuck_norris_transient = get_transient($key);
+		if ($chuck_norris_transient !== false) {
+			return $chuck_norris_transient;
+		}
 
+		else {
+			// If there's no cached version, let's get a joke
+			$jsonurl     = "http://api.icndb.com/jokes/random?limitTo=[nerdy]";
+			$json        = wp_remote_get( $jsonurl );
+
+			if ( is_wp_error( $json ) ) {
+				return "Chuck Norris accidentally kicked the server, it will be up soon!";
+			}
+
+			else {
+				// If everything's okay, parse the body and json_decode it
+				$json_output = json_decode( wp_remote_retrieve_body( $json ));
+				$joke        = $json_output->value->joke;
+
+				// Store the result in a transient, expires after 1 day
+				// Also store it as the last successful using update_option
+				set_transient( $key, $joke, 60*1 );
+			}
+		}
+		echo esc_html($joke);
 	}
 
 	/**
@@ -65,3 +84,4 @@ Class Chuck_Norris_Jokes {
 	}
 } //The end? It's only the beginning...
 new Chuck_Norris_Jokes();
+
