@@ -76,12 +76,18 @@ Class Chuck_Norris_Jokes {
 
 		$jsonurl = "http://api.icndb.com/jokes/random?limitTo=[nerdy]";
 		$json = wp_remote_get($jsonurl);
+		if ( is_wp_error( $json ) ) {
+			return "Chuck Norris accidentally kicked the server, it will be up soon!";
+		}
+		else {
+
 		$body = wp_remote_retrieve_body( $json );
 		$json_output = json_decode( $body );
 
 		echo esc_html($json_output->value->joke);
 
 		echo '<p><strong>Refresh Page for another great Chuck Norris Joke</strong></p>';
+		}
 	}
 } //The end? It's only the beginning...
 new Chuck_Norris_Jokes();
