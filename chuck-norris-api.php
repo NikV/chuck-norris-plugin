@@ -24,7 +24,7 @@ Class Chuck_Norris_Jokes {
 
 	}
 
-
+	// The shortcode
 	public function chuck_norris_shortcode() {
 
 		//The best transient
