@@ -49,6 +49,8 @@ Class Chuck_Norris_Jokes {
 			}
 		}
 			echo esc_html($joke);
+			echo '<p><strong>Refresh Page for another great Chuck Norris Joke</strong></p>';
+
 	}
 
 	// The shortcode
@@ -71,11 +73,7 @@ Class Chuck_Norris_Jokes {
 
 
 	public function roundhouse_widget_function() {
-
 		return $this->chuck_norris_function();
-
-		echo '<p><strong>Refresh Page for another great Chuck Norris Joke</strong></p>';
-
 	}
 
 } //The end? It's only the beginning...
