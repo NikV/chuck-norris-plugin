@@ -24,6 +24,9 @@ Class Chuck_Norris_Jokes {
 
 	}
 
+	/**
+	 * The main Chuck Norris Function
+	 */ 
 	public function chuck_norris_function() {
 		if (! $joke = get_transient('chuck_norris') ) {
 
@@ -53,7 +56,7 @@ Class Chuck_Norris_Jokes {
 
 	}
 
-	// The shortcode
+	// The shortcode function
 	public function chuck_norris_shortcode() {
 		return $this->chuck_norris_function();
 	}
@@ -69,9 +72,10 @@ Class Chuck_Norris_Jokes {
 			array( $this, 'roundhouse_widget_function' ) // Roundhouse kick that function to another line.
 		);
 	}
-
-
-
+	
+	/**
+	 * Callback for dashboard widget
+	 */ 
 	public function roundhouse_widget_function() {
 		return $this->chuck_norris_function();
 	}
