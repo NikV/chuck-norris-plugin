@@ -56,7 +56,7 @@ Class Chuck_Norris_Jokes {
 
 	}
 
-	// The shortcode function
+	// The shortcode function for [chuck-norris-jokes]
 	public function chuck_norris_shortcode() {
 		return $this->chuck_norris_function();
 	}
