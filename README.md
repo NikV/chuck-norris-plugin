@@ -6,4 +6,4 @@ Shortcode: [chuck-norris-jokes]
 
 Dashboard Widget included.
 
-
+Recently updated with Chuck Norris Transients. 
