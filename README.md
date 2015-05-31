@@ -1,6 +1,6 @@
 # THE Chuck Norris Plugin
 
-Chuck Norris Gets what he wants. Like a WordPress plugin deticated to his success.
+Chuck Norris Gets what he wants. Like a WordPress plugin dedicated to his success.
 
 Shortcode: [chuck-norris-jokes]
 
